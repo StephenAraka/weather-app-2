@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "expo-template-default",
+    "name": "weather app 2",
+    "slug": "weather-app-2",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.stephenaraka.weatherapp2"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.stephenaraka.weatherapp2"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +38,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6f00ca4c-ccb1-4e5d-ada0-5a59a88a3202"
+      }
+    },
+    "owner": "stephenaraka",
+    "updates": {
+      "url": "https://u.expo.dev/6f00ca4c-ccb1-4e5d-ada0-5a59a88a3202"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
