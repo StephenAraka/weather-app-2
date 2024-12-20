@@ -12,10 +12,15 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.stephenaraka.weatherapp2"
     },
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#14AAE5"
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#14AAE5"
       },
       "package": "com.stephenaraka.weatherapp2"
     },
@@ -32,7 +37,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#14AAE5"
         }
       ],
       [

@@ -1,6 +1,5 @@
 {
   "cli": {
-    "version": ">= 14.2.0",
     "appVersionSource": "remote"
   },
   "build": {
@@ -12,22 +11,35 @@
       },
       "ios": {
         "image": "latest"
+      },
+      "env": {
+        "GEO_API_KEY": "71c39e64b0mshe81689779da0c95p1fa4b2jsn65b97408fc37",
+        "WEATHER_API_KEY": "c2753d92817fffebd08013d23bd80def"
       }
     },
     "development-simulator": {
       "extends": "development",
       "ios": {
         "simulator": true
+      },
+      "env": {
+        "GEO_API_KEY": "71c39e64b0mshe81689779da0c95p1fa4b2jsn65b97408fc37",
+        "WEATHER_API_KEY": "c2753d92817fffebd08013d23bd80def"
       }
     },
     "preview": {
       "distribution": "internal",
       "channel": "main",
       "android": {
-        "image": "latest"
+        "image": "latest",
+        "buildType": "apk"
       },
       "ios": {
         "image": "latest"
+      },
+      "env": {
+        "GEO_API_KEY": "71c39e64b0mshe81689779da0c95p1fa4b2jsn65b97408fc37",
+        "WEATHER_API_KEY": "c2753d92817fffebd08013d23bd80def"
       }
     },
     "production": {
@@ -38,6 +50,10 @@
       },
       "ios": {
         "image": "latest"
+      },
+      "env": {
+        "GEO_API_KEY": "71c39e64b0mshe81689779da0c95p1fa4b2jsn65b97408fc37",
+        "WEATHER_API_KEY": "c2753d92817fffebd08013d23bd80def"
       }
     }
   },
