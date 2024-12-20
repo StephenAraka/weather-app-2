@@ -21,9 +21,6 @@ const Home = () => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      console.log('====================================');
-      console.log(location);
-      console.log('====================================');
       setLocation(location);
     }
 
