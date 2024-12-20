@@ -8,9 +8,10 @@
 2. [Demo Android APK](#demo-android-apk) 
 3. [Conventions](#conventions)  
 4. [Architecture and General Considerations](#architecture-and-general-considerations)  
-5. [Third-Party Libraries](#third-party-libraries)  
-6. [Building the Project](#building-the-project)  
-7. [Additional Notes](#additional-notes)  
+5. [CI CD](#ci-cd)  
+6. [Third-Party Libraries](#third-party-libraries)  
+7. [Building the Project](#building-the-project)  
+8. [Additional Notes](#additional-notes)  
 
 ---
 
@@ -35,12 +36,32 @@ I have included a demo of the application on [this link here](https://drive.goog
 
 ### Architecture  
 - **State Management**: Managed using **React Query** for asynchronous data fetching and caching.  
-- **UI Framework**: Built with **React Native**, styled using **Tailwind CSS** for rapid development.  
+- **UI Framework**: Built with **React Native (expo)**, styled using **Tailwind CSS** for rapid development.  
 - **Backend Integration**: Weather data fetched from [OpenWeatherMap API](https://openweathermap.org/) and location services integrated via [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities).  
 
 ### General Considerations  
+1. **Expo EAS**: Expo simplifies React Native development with pre-configured tools, seamless workflows, and cloud services for building, testing, and deploying cross-platform apps efficiently.  
 1. **Offline Mode**: Caching with React Query ensures weather data remains accessible even offline.  
 2. **Responsiveness**: Flexible layout with Tailwind ensures a seamless experience across devices. 
+
+---
+## CI CD
+
+This project was generated from expo using [expo.new](https://expo.new) which does set up a basic form of CI/CD (Continuous Integration and Continuous Deployment).
+
+#### Expo EAS benefits:
+- Automatically builds the app whenever updates are made to github
+Depending on the github branch, a different build is made. For example, an update to the develop branch will trigger development builds while updating the main branch will generate a production build.
+- Expo EAS also comes with the advantage of **OTA Builds**. Over-the-air (OTA) builds enable instant updates to your app without requiring users to download a new version from the app store.
+
+### Default Setup
+The consideration made to create the new project via [expo.new](https://expo.new) was to have it align with **Expo's Development Workflow** which gives us a project structure that is compatible with Expo Application Services (EAS).
+
+This project uses EAS services (like EAS Build or EAS Submit), and has the tools for automating builds, testing, and deploying to app stores.
+
+### EAS Build and Submit:
+
+EAS Build is designed to work like a CI tool for building apps in the cloud and the builds for this app are triggered automatically when pushing changes to the main branches, simulating CI/CD behavior.
 
 ---
 
@@ -111,6 +132,7 @@ I have included a demo of the application on [this link here](https://drive.goog
 - **Error Handling**: Graceful error messages for network issues or invalid inputs.
 - **Accessibility**: Adhering to WCAG guidelines for text contrast and touch targets.
 - **Scalability**: Modular architecture allows easy addition of new features.
+- **More CI/CD**: Integrating project with CI/CD tools such as GitHub Actions in addition to EAS build.
 
 #### 4. Challenges & Learnings:
 
