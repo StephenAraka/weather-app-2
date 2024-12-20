@@ -1,14 +1,16 @@
-import { icons, weatherBackground } from '@/constants';
+import { icons } from '@/constants';
+import { getBgColor, getBgImage } from '@/lib/utils';
 import React, { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import Menu from './Menu';
 
-const CurrentWeather = ({ weather = 'cloudy' }) => {
+const CurrentWeather = ({ weather }: { weather: string }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
     <View
-      className={`flex-1 h-1/2 bg-weather-${weather} border-b-2 relative border-white`}
+      className={`flex-1 h-1/2 border-b-2 relative border-white`}
+      style={{ backgroundColor: getBgColor(weather) }}
     >
       <View className="absolute top-16 right-4 w-10 h-10 z-10">
         <TouchableOpacity onPress={() => setShowMenu(!showMenu)}>
@@ -21,7 +23,7 @@ const CurrentWeather = ({ weather = 'cloudy' }) => {
       )}
 
       <Image
-        source={weatherBackground.cloudy}
+        source={getBgImage(weather)}
         className="w-full h-[80%]"
         resizeMode="cover"
       />
