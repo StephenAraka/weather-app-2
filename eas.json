@@ -32,7 +32,8 @@
       "channel": "main",
       "android": {
         "image": "latest",
-        "buildType": "apk"
+        "buildType": "apk",
+        "resourceClass": "medium"
       },
       "ios": {
         "image": "latest"
