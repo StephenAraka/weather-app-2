@@ -1,8 +1,10 @@
 import CurrentWeather from '@/components/CurrentWeather';
 import Forecast from '@/components/Forecast';
+import WeatherInfo from '@/components/WeatherInfo';
 import { fetchWeatherData } from '@/lib/api';
 import { getStoredWeatherData, storeWeatherData } from '@/lib/storage';
 import { getWeatherDescription } from '@/lib/utils';
+import NetInfo from '@react-native-community/netinfo';
 import { useQuery } from '@tanstack/react-query';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
@@ -14,20 +16,33 @@ const Home = () => {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [storedWeatherData, setStoredWeatherData] = useState<SavedWeatherData | null>(null);
 
+  const [hasInternet, setHasInternet] = useState(true);
+
   useEffect(() => {
+    // Check internet connection
+    const netInfoSubscription = NetInfo.addEventListener((state) => {
+      setHasInternet(state.isConnected ?? false);
+    });
+  
+    // Get location
     async function getCurrentLocation() {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
         return;
       }
-
+  
       const loc = await Location.getCurrentPositionAsync({});
       setLocation(loc);
     }
-
+  
     getCurrentLocation();
+  
+    return () => {
+      netInfoSubscription();
+    };
   }, []);
+  
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['weatherData', location?.coords.latitude, location?.coords.longitude],
@@ -74,13 +89,21 @@ const Home = () => {
     );
   }
 
-  if (isError && !data) {
+  if (hasInternet && isError && !data) {
     return (
       <SafeAreaView className="flex flex-1 justify-center items-center">
         <Text>Error fetching weather data. Please try again.</Text>
       </SafeAreaView>
     );
   }
+
+  // if (!hasInternet) {
+  //   return (
+  //     <SafeAreaView className="flex flex-1 justify-center items-center">
+  //       <Text>No internet connected.</Text>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   // For offline first, we check if either data or storedWeatherData is available, and return components accordingly
   const weatherToShow = data || storedWeatherData;
@@ -94,6 +117,7 @@ const Home = () => {
             weather={getWeatherDescription(weatherToShow.currentWeather.weather[0].description)}
             data={weatherToShow.forecast}
           />
+          <WeatherInfo isOnline={hasInternet} location={weatherToShow.currentWeather.name} timestamp={weatherToShow.currentWeather.dt} />
         </>
       ) : (
         <Text>No weather data available</Text>
