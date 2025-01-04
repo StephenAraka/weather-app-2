@@ -8,10 +8,11 @@
 2. [Demo Android APK](#demo-android-apk) 
 3. [Conventions](#conventions)  
 4. [Architecture and General Considerations](#architecture-and-general-considerations)  
-5. [CI CD](#ci-cd)  
-6. [Third-Party Libraries](#third-party-libraries)  
-7. [Building the Project](#building-the-project)  
-8. [Additional Notes](#additional-notes)  
+5. [CI CD](#ci-cd)
+6. [Special Feature](#special-feature) 
+7. [Third-Party Libraries](#third-party-libraries)  
+8. [Building the Project](#building-the-project)  
+9. [Additional Notes](#additional-notes)  
 
 ---
 
@@ -52,6 +53,8 @@ This project was generated from expo using [expo.new](https://expo.new) which do
 #### Expo EAS benefits:
 - Automatically builds the app whenever updates are made to github
 Depending on the github branch, a different build is made. For example, an update to the develop branch will trigger development builds while updating the main branch will generate a production build.
+Below is a screenshot showing an ongoing build for this app happening on Github.
+<img src="./assets/screenshots/CI.png"  >
 - Expo EAS also comes with the advantage of **OTA Builds**. Over-the-air (OTA) builds enable instant updates to your app without requiring users to download a new version from the app store.
 
 ### Default Setup
@@ -62,6 +65,17 @@ This project uses EAS services (like EAS Build or EAS Submit), and has the tools
 ### EAS Build and Submit:
 
 EAS Build is designed to work like a CI tool for building apps in the cloud and the builds for this app are triggered automatically when pushing changes to the main branches, simulating CI/CD behavior.
+
+---
+
+## Special Feature (AI)
+I have integrated AI into the weather app by leveraging Google Gemini's generative capabilities. This implementation provides users with personalized suggestions on what to wear, carry, or consider based on the current weather conditions. By analyzing data such as temperature, weather type, and user location, the app delivers concise, practical advice with a touch of humor, enhancing the overall user experience and making weather insights more actionable and engaging.
+
+### Screenshots
+
+| Online | Bot Offline | Bot Response |
+|-|-|-|
+| <img src="./assets/screenshots/AIon.png"  > | <img src="./assets/screenshots/AIoff.png"  > | <img src="./assets/screenshots/AI.png"  > |
 
 ---
 
