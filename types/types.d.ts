@@ -141,3 +141,15 @@ declare interface SavedWeatherData {
     }[];
   };
 }
+
+declare type WeatherBotProps = {
+  feelsLike: string;
+  location: string;
+  type: string;
+  isOnline: boolean;
+};
+
+declare type MenuProps = {
+  handleAddToFavorites: () => void;
+  closeMenu: () => void;
+};

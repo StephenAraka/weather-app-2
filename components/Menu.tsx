@@ -3,11 +3,6 @@ import { router } from 'expo-router';
 import React from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
-type MenuProps = {
-  handleAddToFavorites: () => void;
-  closeMenu: () => void;
-};
-
 const Menu = ({ handleAddToFavorites, closeMenu }: MenuProps) => {
   return (
     <View className='w-full h-[200%] bg-transparent z-20 absolute top-0 right-0'>
