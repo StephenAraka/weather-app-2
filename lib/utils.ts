@@ -1,4 +1,5 @@
 import { icons, weatherBackground } from "@/constants";
+import moment from 'moment';
 
 export const getBgColor = (weather: string) => {
 
@@ -100,4 +101,15 @@ export const getWeatherIcon = (weatherType: string) => {
     default:
       return icons.clear;
   }
+};
+
+export const formatTime = (timestamp: number) => {
+  const now = moment();
+  const time = moment(timestamp);
+
+  if (now.diff(time, 'hours') < 24) {
+    return time.fromNow();
+  }
+
+  return time.format('MMM D, YYYY');
 };
