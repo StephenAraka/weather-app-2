@@ -1,3 +1,5 @@
+import sun from "../assets/lottie/sun.json";
+
 export const weatherBackground = {
   sunny: require("../assets/images/weather/sunny.png"),
   cloudy: require("../assets/images/weather/cloudy.png"),
@@ -13,3 +15,7 @@ export const icons = {
   info: require("../assets/icons/info.png"),
   plus: require("../assets/icons/plus.png"),
 };
+
+export const animations = {
+  sun,
+}
