@@ -1,5 +1,6 @@
 import CurrentWeather from '@/components/CurrentWeather';
 import Forecast from '@/components/Forecast';
+import WeatherBot from '@/components/WeatherBot';
 import WeatherInfo from '@/components/WeatherInfo';
 import { fetchWeatherData } from '@/lib/api';
 import { getStoredWeatherData, storeWeatherData } from '@/lib/storage';
@@ -118,6 +119,7 @@ const Home = () => {
             data={weatherToShow.forecast}
           />
           <WeatherInfo isOnline={hasInternet} location={weatherToShow.currentWeather.name} timestamp={weatherToShow.currentWeather.dt} />
+          <WeatherBot isOnline={hasInternet} feelsLike={weatherToShow.currentWeather.main.feels_like} type={weatherToShow.currentWeather.weather[0].description} location={`${weatherToShow.currentWeather.name}, ${weatherToShow.currentWeather.sys.country}`}  />
         </>
       ) : (
         <Text>No weather data available</Text>
