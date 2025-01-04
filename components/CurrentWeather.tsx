@@ -47,7 +47,7 @@ const addToFavs = () => {
       </View>
 
       {showMenu && (
-        <Menu handleAddToFavorites={addToFavs} />
+        <Menu handleAddToFavorites={addToFavs} closeMenu={() => setShowMenu(false)} />
       )}
 
       <Image
