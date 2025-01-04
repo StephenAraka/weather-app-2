@@ -119,7 +119,7 @@ const Home = () => {
             data={weatherToShow.forecast}
           />
           <WeatherInfo isOnline={hasInternet} location={weatherToShow.currentWeather.name} timestamp={weatherToShow.currentWeather.dt} />
-          <WeatherBot />
+          <WeatherBot feelsLike={weatherToShow.currentWeather.main.feels_like} type={weatherToShow.currentWeather.weather[0].description} location={`${weatherToShow.currentWeather.name}, ${weatherToShow.currentWeather.sys.country}`}  />
         </>
       ) : (
         <Text>No weather data available</Text>
